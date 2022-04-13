@@ -7,6 +7,8 @@
   --grid-min-width-conteudo: 400px;
   --grid-max-width-conteudo: 1000px;
   --grid-width-detalhe: 100px;
+
+  --height--header: 70px;
 }
 
 html.dark-ativo:root {
@@ -37,6 +39,10 @@ body {
     1fr;
 }
 
+body.letra-maior {
+  font-size: 140%;
+}
+
 ul {
   list-style: none;
 }
@@ -62,7 +68,6 @@ a {
     1fr;
   position: fixed;
   width: 100%;
-  height: 100px;
   background-color: var(--background-principal);
   padding: 20px 0;
   top: 0;
@@ -78,7 +83,7 @@ a {
       )
       70px 1fr;
     background-color: var(--background-detalhes);
-    height: 60px;
+    height: var(--height--header);
     align-items: center;
   }
 
@@ -119,10 +124,15 @@ a {
     justify-content: end;
     gap: 20px;
 
-    img {
-      padding: 10px 0;
+    .img-dark-light,
+    .img-text {
+      display: none;
+    }
 
-      fill: var(--texto-principal);
+    .img-dark-light.ativo,
+    .img-text.ativo {
+      display: block;
+      cursor: pointer;
     }
   }
 }
@@ -292,8 +302,8 @@ main {
   margin: 20px 0;
 
   p {
+    height: var(--height--header);
     background-color: var(--background-detalhes);
-    height: 60px;
     grid-column: 3/-1;
     display: flex;
     align-items: center;

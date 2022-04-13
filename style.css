@@ -5,6 +5,7 @@
   --grid-min-width-conteudo: 400px;
   --grid-max-width-conteudo: 1000px;
   --grid-width-detalhe: 100px;
+  --height--header: 70px;
 }
 
 html.dark-ativo:root {
@@ -32,6 +33,10 @@ body {
       grid-template-columns: 1fr var(--grid-width-detalhe) minmax(var(--grid-min-width-conteudo), var(--grid-max-width-conteudo)) 1fr;
 }
 
+body.letra-maior {
+  font-size: 140%;
+}
+
 ul {
   list-style: none;
 }
@@ -54,7 +59,6 @@ a {
       grid-template-columns: 1fr var(--grid-width-detalhe) minmax(var(--grid-min-width-conteudo), var(--grid-max-width-conteudo)) 1fr;
   position: fixed;
   width: 100%;
-  height: 100px;
   background-color: var(--background-principal);
   padding: 20px 0;
   top: 0;
@@ -68,7 +72,7 @@ a {
   -ms-grid-columns: minmax(var(--grid-min-width-conteudo), calc(var(--grid-max-width-conteudo) - 70px)) 70px 1fr;
       grid-template-columns: minmax(var(--grid-min-width-conteudo), calc(var(--grid-max-width-conteudo) - 70px)) 70px 1fr;
   background-color: var(--background-detalhes);
-  height: 60px;
+  height: var(--height--header);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -124,9 +128,15 @@ a {
   gap: 20px;
 }
 
-.header-menu .right-menu img {
-  padding: 10px 0;
-  fill: var(--texto-principal);
+.header-menu .right-menu .img-dark-light,
+.header-menu .right-menu .img-text {
+  display: none;
+}
+
+.header-menu .right-menu .img-dark-light.ativo,
+.header-menu .right-menu .img-text.ativo {
+  display: block;
+  cursor: pointer;
 }
 
 main {
@@ -335,8 +345,8 @@ main .grid-template {
 }
 
 .footer p {
+  height: var(--height--header);
   background-color: var(--background-detalhes);
-  height: 60px;
   grid-column: 3/-1;
   display: -webkit-box;
   display: -ms-flexbox;
