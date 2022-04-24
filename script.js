@@ -69,3 +69,19 @@ function IncreaseText() {
   });
 }
 IncreaseText();
+
+function OpenFaq() {
+  const titleFaq = document.querySelectorAll(".js-itens-faq dt");
+  titleFaq[0].nextElementSibling.classList.add("ativo");
+  titleFaq[0].classList.add("open");
+
+  function activeTextFaq() {
+    this.nextElementSibling.classList.toggle("ativo");
+    this.classList.toggle("open");
+  }
+
+  titleFaq.forEach((item) => {
+    item.addEventListener("click", activeTextFaq);
+  });
+}
+OpenFaq();
